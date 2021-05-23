@@ -9,13 +9,13 @@ using System.Collections.Generic;
 
 namespace Pets
 {
-    [HarmonyPatch(typeof(NineTailedFoxNamingRule),nameof(NineTailedFoxNamingRule.PlayEntranceAnnouncement))]
-    internal static class AnnouncePatch
-    {
-        private static bool Prefix(NineTailedFoxNamingRule __instance, string regular)
-        {
-            try
-            {
+	[HarmonyPatch(typeof(NineTailedFoxNamingRule), nameof(NineTailedFoxNamingRule.PlayEntranceAnnouncement))]
+	internal static class AnnouncePatch
+	{
+		private static bool Prefix(NineTailedFoxNamingRule __instance, string regular)
+		{
+			try
+			{
 				string cassieUnitName = __instance.GetCassieUnitName(regular);
 				int num = Server.Get.GetPlayers(x => x.RealTeam == Team.SCP && !x.IsDummy).Count;
 				StringBuilder stringBuilder = new StringBuilder();
@@ -52,28 +52,28 @@ namespace Pets
 				}
 				__instance.ConfirmAnnouncement(ref stringBuilder);
 				return false;
-            }
-            catch(Exception e)
-            {
-                Logger.Get.Error($"Error while announcing mtf:\n{e}");
-                return true;
-            }
-        }
-    }
+			}
+			catch (Exception e)
+			{
+				Logger.Get.Error($"Error while announcing mtf:\n{e}");
+				return true;
+			}
+		}
+	}
 
-	[HarmonyPatch(typeof(NineTailedFoxAnnouncer),nameof(NineTailedFoxAnnouncer.AnnounceScpTermination))]
+	[HarmonyPatch(typeof(NineTailedFoxAnnouncer), nameof(NineTailedFoxAnnouncer.AnnounceScpTermination))]
 	internal static class TerminationPatch
-    {
+	{
 		public static List<Player> Killer = new List<Player>();
 
 		private static bool Prefix(PlayerStats.HitInfo hit)
-        {
+		{
 			var ply = Killer.FirstOrDefault(x => x.PlayerId == hit.PlayerId);
-			if(ply != null)
-            {
+			if (ply != null)
+			{
 				Killer.Remove(ply);
 				return false;
-            }
+			}
 
 			return true;
 		}

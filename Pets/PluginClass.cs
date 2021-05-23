@@ -54,7 +54,7 @@ namespace Pets
                 var instance = new Harmony("pets.patches");
                 instance.PatchAll();
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Logger.Get.Error($"Pets Harmony Patching failed:\n{e}");
             }

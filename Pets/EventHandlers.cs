@@ -37,7 +37,7 @@ namespace Pets
             {
                 var dummy = Map.Get.Dummies.FirstOrDefault(x => x.Player == ev.PlayerToShow);
 
-                if(dummy != null && dummy is Pet p && p.Owner != ev.Player)
+                if (dummy != null && dummy is Pet p && p.Owner != ev.Player)
                 {
                     if (PluginClass.PetPlugin.Config.InvisiblePet || (p.Owner.Invisible && !ev.Player.HasPermission("synapse.see.invisible")) || p.Owner.PlayerEffectsController.GetEffect<CustomPlayerEffects.Scp268>().Enabled)
                     {
@@ -45,7 +45,7 @@ namespace Pets
                         return;
                     }
 
-                    if(ev.Player.RoleType == RoleType.Scp93953 || ev.Player.RoleType == RoleType.Scp93989)
+                    if (ev.Player.RoleType == RoleType.Scp93953 || ev.Player.RoleType == RoleType.Scp93989)
                     {
                         if (SynapseExtensions.CanHarmScp(p.Owner, false) && !p.Owner.GetComponent<Scp939_VisionController>().CanSee(ev.Player.ClassManager.Scp939))
                             ev.Invisible = true;

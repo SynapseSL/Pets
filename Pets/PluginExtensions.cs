@@ -30,7 +30,7 @@ namespace Pets
 
             if (conf.EveryoneCanUse) return true;
 
-            if (conf.Users != null && conf.Users.Contains(player.UserId) ) return true;
+            if (conf.Users != null && conf.Users.Contains(player.UserId)) return true;
 
             if (conf.Permissions != null && conf.Permissions.Any(x => player.HasPermission(x))) return true;
 

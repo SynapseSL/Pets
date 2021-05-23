@@ -34,7 +34,7 @@ namespace Pets
 
         public Pet(Player player, int ID) : this(player, PluginClass.PetPlugin.PetHandler.GetPet(ID)) { }
 
-        public Pet(Player player, PetConfiguration configuration) : 
+        public Pet(Player player, PetConfiguration configuration) :
             base(player.Position, player.Rotation, configuration.Role, PluginClass.PetPlugin.Translation.ActiveTranslation.Owner.Replace("%player%", player.NickName), configuration.Badge.Replace("\\n", "\n"), configuration.BadgeColor)
         {
             player.GetPetOwnerScript().SpawnedPets.Add(configuration.PetID);
@@ -62,7 +62,7 @@ namespace Pets
 
         private IEnumerator<float> Walk()
         {
-            for(; ; )
+            for (; ; )
             {
                 yield return Timing.WaitForSeconds(0.1f);
 
@@ -75,7 +75,7 @@ namespace Pets
                 if ((PlayerMovementState)Owner.AnimationController.Network_curMoveState == PlayerMovementState.Sneaking) Movement = PlayerMovementState.Sneaking;
                 else Movement = PlayerMovementState.Sprinting;
 
-                if(Movement == PlayerMovementState.Sneaking)
+                if (Movement == PlayerMovementState.Sneaking)
                 {
                     if (distance > 5f) Position = Owner.Position;
 
@@ -94,7 +94,7 @@ namespace Pets
 
                 else if (distance <= 1.25f)
                     Direction = Synapse.Api.Enum.MovementDirection.Stop;
-                    
+
             }
         }
     }

@@ -32,7 +32,7 @@ namespace Pets
             if (files.Count == 0) CreateExampleFile(spath);
             Pets.Clear();
 
-            foreach(var file in files)
+            foreach (var file in files)
             {
                 try
                 {
@@ -43,7 +43,7 @@ namespace Pets
                     var config = syml.Sections.First().Value.LoadAs<PetConfiguration>();
                     Pets.Add(config);
                 }
-                catch(Exception e)
+                catch (Exception e)
                 {
                     Synapse.Api.Logger.Get.Send($"Pets: Error while loading a pet:\n{e}", System.ConsoleColor.Red);
                 }

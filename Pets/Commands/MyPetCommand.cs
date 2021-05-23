@@ -23,7 +23,7 @@ namespace Pets.Commands
                 State = CommandResultState.Ok,
             };
 
-            if(context.Arguments.At(0).ToLower() == "spawn")
+            if (context.Arguments.At(0).ToLower() == "spawn")
             {
                 if (context.Arguments.Count < 2) return new CommandResult
                 {
