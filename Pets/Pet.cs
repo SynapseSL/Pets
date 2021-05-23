@@ -45,7 +45,7 @@ namespace Pets
             Player.DisplayInfo = configuration.Name.Replace("\\n", "\n");
 
             if (!PluginClass.PetPlugin.Config.ShowOwnerName)
-                Player.RemoveDisplayInfo(PlayerInfoArea.Role);
+                Player.RemoveDisplayInfo(PlayerInfoArea.Nickname);
 
             if (!PluginClass.PetPlugin.Config.ShowRole)
                 Player.RemoveDisplayInfo(PlayerInfoArea.Role);
