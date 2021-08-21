@@ -14,7 +14,7 @@ namespace Pets
         SynapseMajor = 2,
         SynapseMinor = 6,
         SynapsePatch = 0,
-        Version = "v.1.0.0"
+        Version = "v.1.0.1"
         )]
     public class PluginClass : AbstractPlugin
     {

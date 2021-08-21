@@ -27,7 +27,7 @@ namespace Pets
                 var dummy = Map.Get.Dummies.FirstOrDefault(x => x.Player == ev.Victim);
 
                 if (dummy != null && dummy is Pet p)
-                    ev.AllowDamage = ev.Attacker.WeaponManager.GetShootPermission(p.Owner.ClassManager);
+                    ev.AllowDamage = SynapseExtensions.GetHarmPermission(ev.Attacker, p.Owner);
             }
         }
 
@@ -39,7 +39,7 @@ namespace Pets
 
                 if (dummy != null && dummy is Pet p && p.Owner != ev.Player)
                 {
-                    if (PluginClass.PetPlugin.Config.InvisiblePet || (p.Owner.Invisible && !ev.Player.HasPermission("synapse.see.invisible")) || p.Owner.PlayerEffectsController.GetEffect<CustomPlayerEffects.Scp268>().Enabled)
+                    if (PluginClass.PetPlugin.Config.InvisiblePet || (p.Owner.Invisible && !ev.Player.HasPermission("synapse.see.invisible")) || p.Owner.PlayerEffectsController.GetEffect<CustomPlayerEffects.Invisible>().IsEnabled)
                     {
                         ev.Invisible = true;
                         return;
@@ -47,7 +47,7 @@ namespace Pets
 
                     if (ev.Player.RoleType == RoleType.Scp93953 || ev.Player.RoleType == RoleType.Scp93989)
                     {
-                        if (SynapseExtensions.CanHarmScp(p.Owner, false) && !p.Owner.GetComponent<Scp939_VisionController>().CanSee(ev.Player.ClassManager.Scp939))
+                        if (SynapseExtensions.CanHarmScp(p.Owner, false) && !p.Owner.GetComponent<Scp939_VisionController>().CanSee(ev.Player.PlayerEffectsController.GetEffect<CustomPlayerEffects.Visuals939>()))
                             ev.Invisible = true;
                     }
                 }
