@@ -72,7 +72,7 @@ namespace Pets
 
                 var distance = Vector3.Distance(Owner.Position, Position);
 
-                if ((PlayerMovementState)Owner.AnimationController.Network_curMoveState == PlayerMovementState.Sneaking) Movement = PlayerMovementState.Sneaking;
+                if (Owner.MovementState == PlayerMovementState.Sneaking) Movement = PlayerMovementState.Sneaking;
                 else Movement = PlayerMovementState.Sprinting;
 
                 if (Movement == PlayerMovementState.Sneaking)

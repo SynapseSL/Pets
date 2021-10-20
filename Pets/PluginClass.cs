@@ -12,9 +12,9 @@ namespace Pets
         Description = "A Plugin for Pets in SL",
         LoadPriority = 0,
         SynapseMajor = 2,
-        SynapseMinor = 6,
-        SynapsePatch = 0,
-        Version = "v.1.0.1"
+        SynapseMinor = 7,
+        SynapsePatch = 2,
+        Version = "v.1.0.2"
         )]
     public class PluginClass : AbstractPlugin
     {
