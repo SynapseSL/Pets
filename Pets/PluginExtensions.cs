@@ -1,6 +1,6 @@
-﻿using Synapse.Api;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using Synapse.Api;
 
 namespace Pets
 {

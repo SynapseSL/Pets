@@ -1,15 +1,15 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
-using Synapse;
-using Synapse.Api;
+using System.Text;
 using HarmonyLib;
 using Respawning.NamingRules;
-using System.Text;
-using System.Collections.Generic;
+using Synapse;
+using Synapse.Api;
 
 namespace Pets
 {
-	[HarmonyPatch(typeof(NineTailedFoxNamingRule), nameof(NineTailedFoxNamingRule.PlayEntranceAnnouncement))]
+    [HarmonyPatch(typeof(NineTailedFoxNamingRule), nameof(NineTailedFoxNamingRule.PlayEntranceAnnouncement))]
 	internal static class AnnouncePatch
 	{
 		private static bool Prefix(NineTailedFoxNamingRule __instance, string regular)
@@ -19,7 +19,7 @@ namespace Pets
 				string cassieUnitName = __instance.GetCassieUnitName(regular);
 				int num = Server.Get.GetPlayers(x => x.RealTeam == Team.SCP && !x.IsDummy).Count;
 				StringBuilder stringBuilder = new StringBuilder();
-				if (global::ClutterSpawner.IsHolidayActive(global::Holidays.Christmas))
+				if (ClutterSpawner.IsHolidayActive(Holidays.Christmas))
 				{
 					stringBuilder.Append("XMAS_EPSILON11 ");
 					stringBuilder.Append(cassieUnitName);

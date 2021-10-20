@@ -44,7 +44,7 @@ namespace Pets.Commands
                 };
 
 
-                if (Pet.SpawnPet(context.Player, result, out var pet))
+                if (Pet.SpawnPet(context.Player, result, out _))
                     return new CommandResult
                     {
                         Message = PluginClass.PetPlugin.Translation.ActiveTranslation.Spawned,

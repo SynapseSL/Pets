@@ -1,7 +1,7 @@
-﻿using HarmonyLib;
-using System;
-using Synapse.Api.Plugin;
+﻿using System;
+using HarmonyLib;
 using Synapse.Api;
+using Synapse.Api.Plugin;
 using Synapse.Translation;
 
 namespace Pets

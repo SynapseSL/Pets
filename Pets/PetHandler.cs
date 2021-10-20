@@ -1,16 +1,16 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using Synapse.Api;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using Synapse;
-using System;
+using Synapse.Api;
 using Synapse.Config;
 
 namespace Pets
 {
     public class PetHandler
     {
-        public List<PetConfiguration> Pets { get; } = new List<PetConfiguration>();
+        internal List<PetConfiguration> Pets { get; } = new List<PetConfiguration>();
 
         [API]
         public PetConfiguration GetPet(int ID) => Pets.FirstOrDefault(x => x.PetID == ID);
@@ -18,7 +18,7 @@ namespace Pets
         [API]
         public bool PetIsRegistered(int ID) => Pets.Any(x => x.PetID == ID);
 
-        public void LoadPets()
+        internal void LoadPets()
         {
             var spath = Path.Combine(Server.Get.Files.SharedConfigDirectory, "pets");
             var path = Path.Combine(Server.Get.Files.ConfigDirectory, "pets");
