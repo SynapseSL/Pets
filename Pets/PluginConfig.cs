@@ -5,7 +5,7 @@ namespace Pets
 {
     public class PluginConfig : AbstractConfigSection
     {
-        [Description("The max Amount of Pets a Player can have at the same time")]
+        [Description("The max Amount of Pets a Player can spawn during one Round")]
         public int MaxPets { get; set; } = 1;
 
         [Description("If enabled only the Owner of the pet can see it")]

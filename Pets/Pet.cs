@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using MEC;
+﻿using MEC;
 using Synapse.Api;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Pets
@@ -94,7 +94,6 @@ namespace Pets
 
                 else if (distance <= 1.25f)
                     Direction = Synapse.Api.Enum.MovementDirection.Stop;
-
             }
         }
     }

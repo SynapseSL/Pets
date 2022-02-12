@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using Synapse.Config;
+﻿using Synapse.Config;
+using System.Collections.Generic;
 
 namespace Pets
 {

@@ -1,8 +1,8 @@
-﻿using System;
-using HarmonyLib;
+﻿using HarmonyLib;
 using Synapse.Api;
 using Synapse.Api.Plugin;
 using Synapse.Translation;
+using System;
 
 namespace Pets
 {
@@ -12,9 +12,9 @@ namespace Pets
         Description = "A Plugin for Pets in SL",
         LoadPriority = 0,
         SynapseMajor = 2,
-        SynapseMinor = 7,
-        SynapsePatch = 2,
-        Version = "v.1.0.2"
+        SynapseMinor = 8,
+        SynapsePatch = 3,
+        Version = "v.1.0.3"
         )]
     public class PluginClass : AbstractPlugin
     {
